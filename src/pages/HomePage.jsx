@@ -24,6 +24,7 @@ function HomePage() {
   return (
     <div>
       <h1> Donate Your Lego! </h1>
+      <h2> Donate your used Lego to MichaelangLego Designs and see things come to life in the form of actual-sized </h2>
     <div id="project-list">
       {projectList.map((project, key) => {
         return <ProjectCard key={key} projectData={project} />;
