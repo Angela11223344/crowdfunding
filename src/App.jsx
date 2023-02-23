@@ -9,6 +9,7 @@ import LoginPage from "./pages/LoginPage";
 import PledgePage from "./pages/PledgePage";
 import MyProjectPage from "./pages/MyProjectPage";
 import PledgeFormPage from "./pages/PledgeFormPage";
+import CreateAccountPage from "./pages/CreateAccountPage";
 
 //Components
 import Nav from "./components/Nav/Nav";
@@ -44,6 +45,7 @@ const router = createBrowserRouter([
       { path: "/project/:id", element: <ProjectPage /> },
       { path: "/pledges/:id", element: <PledgePage />},
       { path: "/pledges", element: <PledgeFormPage />},
+      { path: "/createAccount", element: <CreateAccountPage />},
     ],
   },
 ]);

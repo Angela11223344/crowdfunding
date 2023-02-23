@@ -26,7 +26,7 @@ function Nav(props) {
             <div id="nav-right">
                 {!loggedIn && <Link to="/login" className="btn">Sign In</Link>}
                 <div>
-                {!loggedIn && <Link to="/" className="btn">Not A Member? Create New Account</Link>}
+                {!loggedIn && <Link to="/createAccount" className="btn">Not A Member? Create New Account</Link>}
                 </div>
                 <div id="nav-controls">
                     <Link to="/" >Home</Link>
