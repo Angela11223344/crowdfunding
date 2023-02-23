@@ -7,6 +7,8 @@ import HomePage from "./pages/HomePage";
 import ProjectPage from "./pages/ProjectPage";
 import LoginPage from "./pages/LoginPage";
 import PledgePage from "./pages/PledgePage";
+import MyProjectPage from "./pages/MyProjectPage";
+import PledgeFormPage from "./pages/PledgeFormPage";
 
 //Components
 import Nav from "./components/Nav/Nav";
@@ -38,8 +40,10 @@ const router = createBrowserRouter([
     children: [
       { path: "/", element: <HomePage /> },
       { path: "/login", element: <LoginPage />},
+      { path: "/myProjects", element: <MyProjectPage />},
       { path: "/project/:id", element: <ProjectPage /> },
       { path: "/pledges/:id", element: <PledgePage />},
+      { path: "/pledges", element: <PledgeFormPage />},
     ],
   },
 ]);

@@ -33,13 +33,13 @@ function Nav(props) {
                 </div>
             </div>
             <div>
-                {loggedIn && <Link to="/" >My Projects</Link>}
+                {loggedIn && <Link to="/myProjects" >My Projects</Link>}
             </div>
             <div>
                 {loggedIn && <Link to="/" >My Pledges</Link>}
             </div>
             <div>
-                {loggedIn && <Link to="/" >Edit My Account Details</Link>}
+                {loggedIn && <Link to="/" >My Account Details</Link>}
             </div>
             <div>
                 {loggedIn && <p>Welcome!</p>}

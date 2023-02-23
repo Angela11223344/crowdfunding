@@ -3,10 +3,7 @@ import { useState, useEffect } from "react";
 // Components
 import ProjectCard from "../components/ProjectCard/ProjectCard";
 
-// Data
-//import { allProjects } from "../data";
-
-function HomePage() {
+function MyProjectPage() {
   //State
   const [projectList, setProjectList] = useState([]);
 
@@ -23,8 +20,7 @@ function HomePage() {
 
   return (
     <div>
-      <h1> Donate Your Lego! </h1>
-      <h2> Donate your used Lego to MichaelangLego Designs and see things come to life in the form of actual-sized</h2>
+      <h1> View all of my Projects: </h1>
     <div id="project-list">
       {projectList.map((project, key) => {
         return <ProjectCard key={key} projectData={project} />;
@@ -34,4 +30,4 @@ function HomePage() {
   );
 }
 
-export default HomePage;
+export default MyProjectPage;

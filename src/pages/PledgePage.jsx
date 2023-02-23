@@ -22,7 +22,7 @@ function PledgePage() {
 
     return (
       <div>
-        <h2>Pledge Id: </h2>
+        <h2>Pledge: </h2>
         <h3>Created at: </h3>
         <h3>Amount: </h3>
         <h3>Comment: </h3>

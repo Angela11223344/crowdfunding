@@ -23,7 +23,7 @@ function LoginForm() {
             ...prevCredentials,
             [id]: value,
         }));
-    }
+    };
 
     const postData = async () => {
         const response = await fetch(
