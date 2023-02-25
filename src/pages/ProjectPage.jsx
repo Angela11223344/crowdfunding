@@ -1,29 +1,33 @@
 //Data
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import PledgeForm from "../components/PledgeForm/PledgeForm";
 
 //Dummy data
 //import { oneProject } from "../data";
 
 function ProjectPage() {
   //State
-  const [project, setProject] = useState({pledges: []});
+  const [project, setProject] = useState({ pledges: [] });
 
   //Hooks
   const { id } = useParams();
 
+  //const { loggedIn, setLoggedIn } = props
+
   //Effects
   useEffect(() => {
     fetch(`${import.meta.env.VITE_API_URL}projects/${id}`)
-    .then((results) => {
-      return results.json();
-    })
-    .then((data) => {
-      setProject(data);
-    });
+      .then((results) => {
+        return results.json();
+      })
+      .then((data) => {
+        setProject(data);
+      });
   }, []);
 
-    return (
+  return (
+    <>
       <div>
         <h2>{project.title}</h2>
         <h3>Created at: {project.date_created}</h3>
@@ -39,8 +43,13 @@ function ProjectPage() {
           })}
         </ul>
       </div>
-    );
-  }
-  
-  export default ProjectPage;
+      {/* <div>
+        <Link to="/pledges" className="btn">Make A Donation</Link>
+        </div> */}
+        <PledgeForm />
+    </>
 
+  );
+}
+
+export default ProjectPage;

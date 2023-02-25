@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 
 function PledgePage() {
   //State
-  const [pledge, setPledge] = useState();
+  const [pledge,setPledge] = useState( );
 
   //Hooks
   const { id } = useParams();

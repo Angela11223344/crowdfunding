@@ -8,8 +8,9 @@ import ProjectPage from "./pages/ProjectPage";
 import LoginPage from "./pages/LoginPage";
 import PledgePage from "./pages/PledgePage";
 import MyProjectPage from "./pages/MyProjectPage";
-import PledgeFormPage from "./pages/PledgeFormPage";
+// import PledgeFormPage from "./pages/PledgeFormPage";
 import CreateAccountPage from "./pages/CreateAccountPage";
+import PledgeForm from "./components/PledgeForm/PledgeForm";
 
 //Components
 import Nav from "./components/Nav/Nav";
@@ -44,7 +45,7 @@ const router = createBrowserRouter([
       { path: "/myProjects", element: <MyProjectPage />},
       { path: "/project/:id", element: <ProjectPage /> },
       { path: "/pledges/:id", element: <PledgePage />},
-      { path: "/pledges", element: <PledgeFormPage />},
+      { path: "/pledges", element: <PledgeForm />},
       { path: "/createAccount", element: <CreateAccountPage />},
     ],
   },

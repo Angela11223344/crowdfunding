@@ -1,20 +1,19 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-function CreateAccountForm() {
-    const [createAccountForm, setCreateAccountForm] = useState({
-        "username": null,
-        "first_name": null,
-        "last_name": null,
-        "email": null,
-        "password": null
+function CreateProjectForm() {
+    const [createProjectForm, setCreateProjectForm] = useState({
+        "title": null,
+        "decription": null,
+        "goal": null,
+        "image": null,
         });
 
     const navigate = useNavigate();
 
     const handleChange = (event) => {
         const { id,value } = event.target;
-        setCreateAccountForm((prevUser) => ({
+        setCreateProjectForm((prevUser) => ({
         ...prevUser,
         [id]: value,
         }));
@@ -48,51 +47,42 @@ function CreateAccountForm() {
         <div>
         <form onSubmit={handleSubmit}>
             <div>
-            <label htmlFor="username">Username:</label>
+            <label htmlFor="title">Title:</label>
             <input
                 type="text"
-                id="username"
-                placeholder="Enter username"
+                id="title"
+                placeholder="Enter title"
                 onChange={handleChange}
             />
             </div>
             <div>
-            <label htmlFor="first_name">First Name:</label>
+            <label htmlFor="description">Description:</label>
             <input
                 type="text"
-                id="first_name"
-                placeholder="Enter your first name"
+                id="description"
+                placeholder="Enter your project description here..."
                 onChange={handleChange}
             />
             </div>
             <div>
-            <label htmlFor="last_name">Last Name:</label>
+            <label htmlFor="goal">Goal:</label>
             <input
                 type="text"
-                id="last_name"
-                placeholder="Enter your last name"
+                id="goal"
+                placeholder="How many pieces of lego do you need?"
                 onChange={handleChange}
             />
             </div>
             <div>
-            <label htmlFor="email">Email:</label>
+            <label htmlFor="image">Image:</label>
             <input
-                type="text"
-                id="email"
-                placeholder="Enter your email address"
+                type="img"
+                id="image"
+                placeholder="Add an image here..."
                 onChange={handleChange}
             />
             </div>
-            <div>
-            <label htmlFor="password">Password:</label>
-            <input
-                type="text"
-                id="password"
-                placeholder="Enter your password"
-                onChange={handleChange}
-            />
-            </div>
-            <button type="submit">Create Account!</button>
+            <button type="submit">Create Project!</button>
         </form>
         </div>
     );
