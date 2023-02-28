@@ -6,3 +6,7 @@
     width: 150vh;
     place-items: center;
 } 
+
+.header-background {
+    background-color: crimson;
+}

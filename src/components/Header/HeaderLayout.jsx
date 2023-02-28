@@ -3,7 +3,7 @@ import "./HeaderLayout.css";
 
 function HeaderLayout() {
     return (
-        <div>
+        <div className="header-background">
             <img className="logo-image" src="public/crowdfundinglogo.png" alt="MichaelangLego Designs Logo"></img>
         </div>
     );
