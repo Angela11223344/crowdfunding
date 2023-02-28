@@ -1,7 +1,8 @@
 //Data
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
-import PledgeForm from "../components/PledgeForm/PledgeForm";
+import { useParams, Link } from "react-router-dom";
+//import PledgeForm from "../components/PledgeForm/PledgeForm";
+import PledgeFormPage from "../pages/PledgeFormPage";
 
 //Dummy data
 //import { oneProject } from "../data";
@@ -29,24 +30,31 @@ function ProjectPage() {
   return (
     <>
       <div>
-        <h2>{project.title}</h2>
-        <h3>Created at: {project.date_created}</h3>
-        <h3>{`Status: ${project.is_open}`}</h3>
-        <h3>Pledges:</h3>
+        <h2>Donate to {project.title}!</h2>
+        <img src={project.image} />
+        {/* <h3>Created at: {project.date_created}</h3> */}
+        {/* <h3>{`Status: ${project.is_open}`}</h3> */}
+        <h2>Project Description: </h2>
+        <h3> {project.description} </h3>
+
+        <h2>Pledges:</h2>
         <ul>
           {project.pledges.map((pledgeData, key) => {
             return (
               <li key={key}>
-                {pledgeData.amount} from {pledgeData.supporter}
+                <div>
+                {pledgeData.amount} from {pledgeData.supporter}...{pledgeData.comment}
+                </div>
               </li>
             );
           })}
         </ul>
       </div>
-      {/* <div>
-        <Link to="/pledges" className="btn">Make A Donation</Link>
-        </div> */}
-        <PledgeForm />
+      <div>
+          <Link to="/pledges" >Donate!</Link>
+      </div>
+
+        <PledgeFormPage />
     </>
 
   );

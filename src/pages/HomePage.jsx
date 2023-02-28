@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import HeaderLayout from "../components/Header/HeaderLayout";
 
 // Components
 import ProjectCard from "../components/ProjectCard/ProjectCard";
@@ -22,15 +23,20 @@ function HomePage() {
 
 
   return (
+    <>
     <div>
-      <h1> Donate Your Lego! </h1>
-      <h2> Donate your used Lego to MichaelangLego Designs and see things come to life in the form of actual-sized</h2>
-    <div id="project-list">
-      {projectList.map((project, key) => {
-        return <ProjectCard key={key} projectData={project} />;
-      })}
+      <HeaderLayout />
     </div>
-    </div>
+    <div>
+        <h1> Donate Your Lego! </h1>
+        <h2> Donate your used Lego to MichaelangLego Designs and see things come to life in the form of actual-sized</h2>
+        <div id="project-list">
+          {projectList.map((project, key) => {
+            return <ProjectCard key={key} projectData={project} />;
+          })}
+        </div>
+      </div>
+    </>
   );
 }
 

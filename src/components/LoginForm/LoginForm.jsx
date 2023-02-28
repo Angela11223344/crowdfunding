@@ -13,7 +13,6 @@ function LoginForm() {
 
     //Hooks
     const navigate = useNavigate();
-    
 
     //Actions
     const handleChange = (event) => {
@@ -32,6 +31,7 @@ function LoginForm() {
             method: "post",
             headers: {
               "Content-Type": "application/json",
+            "Authorization":`Token `
             },
             body: JSON.stringify(credentials),
           }

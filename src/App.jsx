@@ -8,9 +8,13 @@ import ProjectPage from "./pages/ProjectPage";
 import LoginPage from "./pages/LoginPage";
 import PledgePage from "./pages/PledgePage";
 import MyProjectPage from "./pages/MyProjectPage";
-// import PledgeFormPage from "./pages/PledgeFormPage";
 import CreateAccountPage from "./pages/CreateAccountPage";
-import PledgeForm from "./components/PledgeForm/PledgeForm";
+// import PledgeForm from "./components/PledgeForm/PledgeForm";
+import ProjectForm from "./components/ProjectForm/ProjectForm";
+import PledgeFormPage from "./pages/PledgeFormPage"
+
+
+
 
 //Components
 import Nav from "./components/Nav/Nav";
@@ -45,8 +49,9 @@ const router = createBrowserRouter([
       { path: "/myProjects", element: <MyProjectPage />},
       { path: "/project/:id", element: <ProjectPage /> },
       { path: "/pledges/:id", element: <PledgePage />},
-      { path: "/pledges", element: <PledgeForm />},
+      { path: "/pledges", element: <PledgeFormPage />},
       { path: "/createAccount", element: <CreateAccountPage />},
+      { path: "/projects", element: <ProjectForm />}
     ],
   },
 ]);
