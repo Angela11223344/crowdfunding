@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import HeaderLayout from "../components/Header/HeaderLayout";
 
 // Components
 import ProjectCard from "../components/ProjectCard/ProjectCard";
@@ -19,14 +20,16 @@ function MyProjectPage() {
 
 
   return (
-    <div>
-      <h1> View all of my Projects: </h1>
-    <div id="project-list">
-      {projectList.map((project, key) => {
-        return <ProjectCard key={key} projectData={project} />;
-      })}
-    </div>
-    </div>
+    <>
+      <HeaderLayout /><div>
+        <h1> View all of my Projects: </h1>
+        <div id="project-list">
+          {projectList.map((project, key) => {
+            return <ProjectCard key={key} projectData={project} />;
+          })}
+        </div>
+      </div>
+    </>
   );
 }
 

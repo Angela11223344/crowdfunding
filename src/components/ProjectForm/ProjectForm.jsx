@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import HeaderLayout from "../Header/HeaderLayout";
 
 function ProjectForm(){
     const [projects, setProjects] = useState({
@@ -45,46 +46,46 @@ function ProjectForm(){
     }
 };
     return(
-        <div className="container">
-        <form onSubmit={handleSubmit}>
-            <div>
-            <label htmlFor="title">Title:</label>
-            <input
-                type="text"
-                id="title"
-                placeholder="Enter title"
-                onChange={handleChange}
-            />
+        <>
+            <HeaderLayout />
+            <h1>Do you have an idea for a really cool project? We want to see it! Create One Here...</h1>
+                <div className="container">
+                <form onSubmit={handleSubmit}>
+                    <div>
+                        <label htmlFor="title">Title:</label>
+                        <input
+                            type="text"
+                            id="title"
+                            placeholder="Enter title"
+                            onChange={handleChange} />
+                    </div>
+                    <div>
+                        <label htmlFor="description">Description:</label>
+                        <input
+                            type="text"
+                            id="description"
+                            placeholder="Enter description"
+                            onChange={handleChange} />
+                    </div>
+                    <div>
+                        <label htmlFor="goal">Goal:</label>
+                        <input
+                            type="number"
+                            id="goal"
+                            onChange={handleChange} />
+                    </div>
+                    <div>
+                        <label htmlFor="image">Image:</label>
+                        <input
+                            type="text"
+                            id="image"
+                            placeholder="Enter Image address"
+                            onChange={handleChange} />
+                    </div>
+                    <button type="submit">Create Project</button>
+                </form>
             </div>
-            <div>
-            <label htmlFor="description">Description:</label>
-            <input
-                type="text"
-                id="description"
-                placeholder="Enter description"
-                onChange={handleChange}
-            />
-            </div>
-            <div>
-            <label htmlFor="goal">Goal:</label>
-            <input
-                type="number"
-                id="goal"
-                onChange={handleChange}
-            />
-            </div>
-            <div>
-            <label htmlFor="image">Image:</label>
-            <input
-                type="text"
-                id="image"
-                placeholder="Enter Image address"
-                onChange={handleChange}
-            />
-            </div>
-            <button type="submit">Create Project</button>
-        </form>
-        </div>
+        </>
     );
 }
 export default ProjectForm;

@@ -1,6 +1,7 @@
 //Data
 import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
+import HeaderLayout from "../components/Header/HeaderLayout";
 //import PledgeForm from "../components/PledgeForm/PledgeForm";
 import PledgeFormPage from "../pages/PledgeFormPage";
 
@@ -29,6 +30,7 @@ function ProjectPage() {
 
   return (
     <>
+      <HeaderLayout />
       <div>
         <h2>Donate to {project.title}!</h2>
         <img src={project.image} />

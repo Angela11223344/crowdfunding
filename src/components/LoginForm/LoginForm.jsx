@@ -1,5 +1,8 @@
 import { useState } from "react";
 import { useNavigate, useOutletContext } from "react-router-dom";
+import HeaderLayout from "../Header/HeaderLayout";
+
+import "./LoginForm.css";
 
 function LoginForm() {
 
@@ -51,29 +54,36 @@ function LoginForm() {
       };
 
     return (
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="username">Username:</label>
-          <input
-            type="text"
-            id="username"
-            onChange={handleChange}
-            placeholder="Enter username"
-          />
-        </div>
-        <div>
-          <label htmlFor="password">Password:</label>
-          <input
-            type="password"
-            id="password"
-            onChange={handleChange}
-            placeholder="Password"
-          />
-        </div>
-        <button type="submit">
-          Login
-        </button>
-      </form>
+      <>
+        <HeaderLayout />
+        <h1 className="title">Welcome Back! Enter Your Details Below To Login... </h1>
+        <div className="login-card">
+          <form onSubmit={handleSubmit}>
+            
+            <div className="text-area">
+              <label htmlFor="username">Username:</label>
+              <input
+                type="text"
+                id="username"
+                onChange={handleChange}
+                placeholder="Enter username" />
+            </div>
+            
+            <div className="text-area">
+              <label htmlFor="password">Password:</label>
+              <input
+                type="password"
+                id="password"
+                onChange={handleChange}
+                placeholder="Password" />
+            </div>
+
+            <button type="submit">
+              Login
+            </button>
+          </form>
+          </div>
+      </>
     );
   }
   

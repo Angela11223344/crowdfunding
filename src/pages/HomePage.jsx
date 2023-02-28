@@ -29,12 +29,15 @@ function HomePage() {
     </div>
     <div>
       <div className="title">
+        <img className ="bricks1" src="public/bricks.png" alt="Logo Bricks"></img>
+        <img className="bricks2" src="public/bricks.png" alt="Logo Bricks"></img>
         <h1> We Want Your Pre-Loved Lego Bricks!!! </h1>
+      
         <div className="header-background">
             <img className="main-lego-image" src="public/legoConstruction.jpg" alt="MichaelangLego Building"></img>
         </div>
       </div>
-        <h2> Donate your used Lego to MichaelangLego Designs and see things come to life!</h2>
+        <h2> Help Us To Build Something Amazing! Donate your used Lego to MichaelangLego Designs and see things come to life!</h2>
         <p>What will you decide to create? </p>
 
         <div id="project-list">
