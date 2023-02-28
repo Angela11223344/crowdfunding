@@ -16,5 +16,6 @@ nav {
 }
 
 button {
-    color: red;
+    color: blue;
+    border-radius: 20px;
 }

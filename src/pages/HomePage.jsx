@@ -28,8 +28,15 @@ function HomePage() {
       <HeaderLayout />
     </div>
     <div>
-        <h1> Donate Your Lego! </h1>
-        <h2> Donate your used Lego to MichaelangLego Designs and see things come to life in the form of actual-sized</h2>
+      <div className="title">
+        <h1> We Want Your Pre-Loved Lego Bricks!!! </h1>
+        <div className="header-background">
+            <img className="main-lego-image" src="public/legoConstruction.jpg" alt="MichaelangLego Building"></img>
+        </div>
+      </div>
+        <h2> Donate your used Lego to MichaelangLego Designs and see things come to life!</h2>
+        <p>What will you decide to create? </p>
+
         <div id="project-list">
           {projectList.map((project, key) => {
             return <ProjectCard key={key} projectData={project} />;
