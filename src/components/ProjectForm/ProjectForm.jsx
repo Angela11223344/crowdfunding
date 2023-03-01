@@ -48,7 +48,7 @@ function ProjectForm(){
     return(
         <>
             <HeaderLayout />
-            <h1>Do you have an idea for a really cool project? We want to see it! Create One Here...</h1>
+            <p className="title">Do you have an idea for a really cool project? We want to see it! Create One Here...</p>
                 <div className="container">
                 <form onSubmit={handleSubmit}>
                     <div>
@@ -72,6 +72,7 @@ function ProjectForm(){
                         <input
                             type="number"
                             id="goal"
+                            placeholder="How many Lego bricks will you need?"
                             onChange={handleChange} />
                     </div>
                     <div>

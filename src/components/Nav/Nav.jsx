@@ -21,18 +21,18 @@ function Nav(props) {
 
     return (
         <nav>
-            <div>
+            <div className="welcome">
                 {loggedIn && <p>Welcome!</p>}
-                {!loggedIn && <Link to="/login">Sign In</Link>}
+                {!loggedIn && <Link className="sign-in" to="/login">Sign In</Link>}
             </div>
             <div>
                 {!loggedIn && <Link to="/register">Not A Member? Create New Account</Link>}
             <div className="home">
                 <Link to="/" >Home</Link>
             <div>
-                {loggedIn && <Link to="/myProjects" >My Projects</Link>}
-                {loggedIn && <Link to="/" >My Account Details</Link>}
-                {loggedIn && <Link to="/projects" >Create A New Project</Link>}
+                {loggedIn && <Link to="/myProjects" >My Projects |</Link>}
+                {loggedIn && <Link to="/" >My Account Details |</Link>}
+                {loggedIn && <Link to="/projects" >Create A New Project |</Link>}
                 {loggedIn && <button onClick={handleClick}>Sign Out</button>}
             </div>
             </div>
