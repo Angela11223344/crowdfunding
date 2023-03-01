@@ -21,12 +21,21 @@ function ProjectPage() {
   useEffect(() => {
     fetch(`${import.meta.env.VITE_API_URL}projects/${id}`)
       .then((results) => {
+  //       setProject(data);
+  //       return results.json();
+  //     })
+
+  //       .catch((error) => {
+  //       console.error(error)
+  //     });
+  // }, []);
+
         return results.json();
       })
       .then((data) => {
         setProject(data);
       });
-  }, []);
+      }, []);
 
   return (
     <>

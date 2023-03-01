@@ -22,18 +22,20 @@ function Nav(props) {
     return (
         <nav>
             <div>
-                {/* {loggedIn && <p>Welcome!</p>} */}
+                {loggedIn && <p>Welcome!</p>}
                 {!loggedIn && <Link to="/login">Sign In</Link>}
             </div>
             <div>
-                {!loggedIn && <Link to="/createAccount">Not A Member? Create New Account</Link>}
-                <div className="nav-item">
+                {!loggedIn && <Link to="/register">Not A Member? Create New Account</Link>}
+            <div className="home">
                 <Link to="/" >Home</Link>
+            <div>
                 {loggedIn && <Link to="/myProjects" >My Projects</Link>}
                 {loggedIn && <Link to="/" >My Account Details</Link>}
                 {loggedIn && <Link to="/projects" >Create A New Project</Link>}
                 {loggedIn && <button onClick={handleClick}>Sign Out</button>}
-                </div>
+            </div>
+            </div>
             </div>
         </nav>
     );

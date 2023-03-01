@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate, useOutletContext } from "react-router-dom";
+import { useNavigate, useOutletContext, Link } from "react-router-dom";
 import HeaderLayout from "../Header/HeaderLayout";
 
 import "./LoginForm.css";
@@ -56,33 +56,34 @@ function LoginForm() {
     return (
       <>
         <HeaderLayout />
-        <h1 className="title">Welcome Back! Enter Your Details Below To Login... </h1>
-        <div className="login-card">
-          <form onSubmit={handleSubmit}>
+        <p className="title">Welcome Back! Enter Your Details Below To Login... </p>
+                  <form onSubmit={handleSubmit}>
+                  <div className="text-area">
+                    <label htmlFor="username">Username:</label>
+                    <input
+                      type="text"
+                      id="username"
+                      onChange={handleChange}
+                      placeholder="Enter username" />
+                  </div>
             
-            <div className="text-area">
-              <label htmlFor="username">Username:</label>
-              <input
-                type="text"
-                id="username"
-                onChange={handleChange}
-                placeholder="Enter username" />
-            </div>
-            
-            <div className="text-area">
-              <label htmlFor="password">Password:</label>
-              <input
-                type="password"
-                id="password"
-                onChange={handleChange}
-                placeholder="Password" />
-            </div>
+                  <div className="text-area">
+                    <label htmlFor="password">Password:</label>
+                    <input
+                      type="password"
+                      id="password"
+                      onChange={handleChange}
+                      placeholder="Password" />
+                  </div>
 
-            <button type="submit">
-              Login
-            </button>
-          </form>
-          </div>
+                  <button type="submit" className="submit-btn">
+                    Login
+                  </button>
+
+                  <div className="sign-up">
+                  <Link to="/register">Don't Have An Account Yet? Sign up here!</Link>
+                  </div>
+                </form>
       </>
     );
   }

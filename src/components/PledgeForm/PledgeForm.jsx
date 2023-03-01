@@ -17,8 +17,8 @@ function PledgeForm(pledgeData) {
   const isUserLoggedin = !(token === null || token === undefined || token === "undefined")
 
   if (!isUserLoggedin) {
-        navigate(`/login/`);
-    }
+    navigate(`/login/`);
+  }
 
   // Actions and Helpers
   const handleChange = (event) => {
@@ -33,14 +33,14 @@ function PledgeForm(pledgeData) {
     event.preventDefault();
 
     const token = window.localStorage.getItem("token")
-    console.log("handleSubmit", pledge, token)
-    
+    console.log("handleSubmit", token)
+
     // Is user logged in and have they put something in all fields?
     if (token && pledge.amount && pledge.comment) {
       try {
         const response = await fetch(
-        //   `${process.env.REACT_APP_API_URL}pledges/`,
-        `${import.meta.env.VITE_API_URL}pledges/`,
+          //   `${process.env.REACT_APP_API_URL}pledges/`,
+          `${import.meta.env.VITE_API_URL}pledges/`,
           {
             method: "post",
             headers: {
@@ -48,9 +48,9 @@ function PledgeForm(pledgeData) {
               'Authorization': `Token ${token}`,
             },
             body: JSON.stringify({
-              amount: parseInt(pledge.amount), 
-              comment: pledge.comment, 
-              anonymous: true, 
+              amount: parseInt(pledge.amount),
+              comment: pledge.comment,
+              anonymous: false,
               project_id: parseInt(id)
             }),
           }
@@ -65,33 +65,33 @@ function PledgeForm(pledgeData) {
     }
   };
 
-    return (
-      <>
-        <form>
-          <div>
-            <label htmlFor="amount">Enter Amount: </label>
-            <input
-              type="text"
-              id="amount"
-              placeholder="Enter amount"
-              onChange={handleChange}
-            />
-          </div>
-          <div>
-            <label htmlFor="comment">Leave a Comment: </label>
-            <input
-              type="text"
-              id="comment"
-              placeholder="Comment"
-              onChange={handleChange}
-            />
-          </div>
-          <button className="pledge-btn" type="submit" onClick={handleSubmit}>
-            Donate
-          </button>
-        </form>
-        </>
-      );
+  return (
+    <>
+      <form>
+        <div>
+          <label htmlFor="amount">Enter Amount: </label>
+          <input
+            type="text"
+            id="amount"
+            placeholder="Enter amount"
+            onChange={handleChange}
+          />
+        </div>
+        <div>
+          <label htmlFor="comment">Leave a Comment: </label>
+          <input
+            type="text"
+            id="comment"
+            placeholder="Comment"
+            onChange={handleChange}
+          />
+        </div>
+        <button className="pledge-btn" type="submit" onClick={handleSubmit}>
+          Donate
+        </button>
+      </form>
+    </>
+  );
 }
 
 export default PledgeForm;
