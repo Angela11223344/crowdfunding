@@ -34,7 +34,7 @@ function LoginForm() {
             method: "post",
             headers: {
               "Content-Type": "application/json",
-            "Authorization":`Token `
+            "Authorization": "Token"
             },
             body: JSON.stringify(credentials),
           }
