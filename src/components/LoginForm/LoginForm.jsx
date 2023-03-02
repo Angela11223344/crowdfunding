@@ -34,7 +34,7 @@ function LoginForm() {
             method: "post",
             headers: {
               "Content-Type": "application/json",
-            "Authorization": "Token"
+            //"Authorization": "Token"
             },
             body: JSON.stringify(credentials),
           }
@@ -47,11 +47,16 @@ function LoginForm() {
         if (credentials.username && credentials.password) 
     {
             const { token } = await postData();
-            window.localStorage.setItem("token", token);
-            setLoggedIn(true);
-            navigate ("/");
-        }
-      };
+            
+            if (token !== undefined) {
+              window.localStorage.setItem("token", token);
+              setLoggedIn(true);
+              navigate("/");
+          } else {
+              setLoggedIn(false);
+          }
+      }
+  };
 
     return (
       <>

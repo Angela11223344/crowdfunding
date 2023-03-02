@@ -39,18 +39,17 @@ function PledgeForm(pledgeData) {
     if (token && pledge.amount && pledge.comment) {
       try {
         const response = await fetch(
-          //   `${process.env.REACT_APP_API_URL}pledges/`,
           `${import.meta.env.VITE_API_URL}pledges/`,
           {
             method: "post",
             headers: {
               "Content-Type": "application/json",
-              'Authorization': `Token ${token}`,
+              "Authorization": `Token ${token}`,
             },
             body: JSON.stringify({
               amount: parseInt(pledge.amount),
-              comment: pledge.comment,
               anonymous: false,
+              comment: pledge.comment,
               project_id: parseInt(id)
             }),
           }
