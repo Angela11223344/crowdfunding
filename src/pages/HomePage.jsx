@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import HeaderLayout from "../components/Header/HeaderLayout";
+import Search from "../components/Search/Search";
 
 // Components
 import ProjectCard from "../components/ProjectCard/ProjectCard";
@@ -25,6 +26,7 @@ function HomePage() {
     <>
     <div>
       <HeaderLayout />
+      <Search />
     </div>
     <div>
       <div className="title">

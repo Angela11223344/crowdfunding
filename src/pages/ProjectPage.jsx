@@ -42,7 +42,9 @@ function ProjectPage() {
       <HeaderLayout />
       <div>
         <h2>Donate to {project.title}!</h2>
-        <img src={project.image} />
+        <div className="pledge-card">
+          <img src={project.image} />
+        </div>
         {/* <h3>Created at: {project.date_created}</h3> */}
         {/* <h3>{`Status: ${project.is_open}`}</h3> */}
         <h2>Project Description: </h2>
@@ -60,9 +62,6 @@ function ProjectPage() {
             );
           })}
         </ul>
-      </div>
-      <div>
-          <Link to="/pledges" >Donate!</Link>
       </div>
 
         <PledgeFormPage />

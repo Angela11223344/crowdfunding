@@ -5,7 +5,6 @@ import HeaderLayout from "../Header/HeaderLayout";
 function ProjectForm(){
     const [projects, setProjects] = useState({
         // from JSON Raw Body in Deployed (default values)
-        // this is what you return at the bottom - your list might look different to mine. If so, don't worry!
         "title": "",
         "description": "",
         "goal": null,
