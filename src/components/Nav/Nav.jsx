@@ -35,7 +35,7 @@ function Nav(props) {
                 <Link to="/" >Home</Link>
             <div>
                 {loggedIn && <Link to="/myProjects" >My Projects |</Link>}
-                {loggedIn && <Link to="/" >My Account Details |</Link>}
+                {loggedIn && <Link to="/myAccount" >My Account Details |</Link>}
                 {loggedIn && <Link to="/projects" >Create A New Project |</Link>}
                 {loggedIn && <button onClick={handleClick}>Sign Out</button>}
             </div>

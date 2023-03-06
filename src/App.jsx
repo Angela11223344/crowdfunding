@@ -8,6 +8,7 @@ import ProjectPage from "./pages/ProjectPage";
 import LoginPage from "./pages/LoginPage";
 import MyProjectPage from "./pages/MyProjectPage";
 import PledgeFormPage from "./pages/PledgeFormPage";
+import ViewAccountPage from "./pages/ViewAccountPage";
 
 //Components
 import Nav from "./components/Nav/Nav";
@@ -48,7 +49,8 @@ const router = createBrowserRouter([
       { path: "/project/:id", element: <ProjectPage /> },
       { path: "/pledges", element: <PledgeFormPage />},
       { path: "/register", element: <Register />},
-      { path: "/projects", element: <ProjectForm />}
+      { path: "/projects", element: <ProjectForm />},
+      { path: "/myAccount", element: <ViewAccountPage />}
     ],
   },
 ]);

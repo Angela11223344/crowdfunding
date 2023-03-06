@@ -1,8 +1,9 @@
 //Data
 import { useState, useEffect } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
+
+
 import HeaderLayout from "../components/Header/HeaderLayout";
-//import PledgeForm from "../components/PledgeForm/PledgeForm";
 import PledgeFormPage from "../pages/PledgeFormPage";
 
 //Dummy data
@@ -33,16 +34,12 @@ function ProjectPage() {
 
         return results.json();
       })
-      .then((data) => {
+      .then(async (data) => {
         setProject(data);
         const userId = data.owner;
-        return fetch(`${import.meta.env.VITE_API_URL}users/${userId}`)
-      .then((results) => {
-        return results.json();
-      })
-      .then((data) => {
-        return setOwner(data);
-      }); 
+        const results = await fetch(`${import.meta.env.VITE_API_URL}users/${userId}`);
+        const data_1 = await results.json();
+        return setOwner(data_1); 
 
     });
   }, []);
@@ -67,7 +64,10 @@ function ProjectPage() {
             return (
               <li key={key}>
                 <div>
-                {pledgeData.amount} pieces of Lego from {owner.username}...{pledgeData.comment}
+                {pledgeData.amount} piece/s of Lego donated by {owner.username}...
+                <h4>
+                  {owner.username} says : "{pledgeData.comment}"
+                </h4>
                 </div>
               </li>
             );
@@ -75,7 +75,7 @@ function ProjectPage() {
         </ul>
       </div>
 
-        <PledgeFormPage />
+      <PledgeFormPage />
     </>
 
   );

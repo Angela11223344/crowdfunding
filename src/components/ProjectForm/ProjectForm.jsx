@@ -70,6 +70,7 @@ function ProjectForm(){
                         <label htmlFor="goal">Goal:</label>
                         <input
                             type="number"
+                            min="1"
                             id="goal"
                             placeholder="How many Lego bricks will you need?"
                             onChange={handleChange} />
