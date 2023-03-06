@@ -17,6 +17,10 @@ function Nav(props) {
     const handleClick = () => {
         window.localStorage.removeItem("token")
         setLoggedIn(false)
+
+    //To show 'Welcome 'username'' on login
+    const [owner, setOwner] = useState([]);
+
     }
 
     return (

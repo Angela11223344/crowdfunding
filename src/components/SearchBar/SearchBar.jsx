@@ -1,9 +1,9 @@
 //import { useState, useEffect } from "react-router-dom"
 
 //CSS
-import "./Search.css";
+import "./SearchBar.css";
 
-function Search() {
+function SearchBar() {
 
     return <>
             <form action="/" method="get">
@@ -17,7 +17,9 @@ function Search() {
                     name="s" 
                 />
                 <button type="submit">Search</button>
-            </form></>
+            </form>
+            
+        </>
 };
 
-export default Search;
+export default SearchBar;

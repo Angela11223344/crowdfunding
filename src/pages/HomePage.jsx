@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import HeaderLayout from "../components/Header/HeaderLayout";
-import Search from "../components/Search/Search";
 
 // Components
 import ProjectCard from "../components/ProjectCard/ProjectCard";
+import SearchBar from "../components/SearchBar/SearchBar";
 // Data
 //import { allProjects } from "../data";
 
@@ -26,7 +26,7 @@ function HomePage() {
     <>
     <div>
       <HeaderLayout />
-      <Search />
+      <SearchBar />
     </div>
     <div>
       <div className="title">

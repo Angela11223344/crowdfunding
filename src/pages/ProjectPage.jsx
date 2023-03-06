@@ -11,6 +11,7 @@ import PledgeFormPage from "../pages/PledgeFormPage";
 function ProjectPage() {
   //State
   const [project, setProject] = useState({ pledges: [] });
+  const [owner, setOwner] = useState([]);
 
   //Hooks
   const { id } = useParams();
@@ -34,9 +35,18 @@ function ProjectPage() {
       })
       .then((data) => {
         setProject(data);
-      });
-      }, []);
+        const userId = data.owner;
+        return fetch(`${import.meta.env.VITE_API_URL}users/${userId}`)
+      .then((results) => {
+        return results.json();
+      })
+      .then((data) => {
+        return setOwner(data);
+      }); 
 
+    });
+  }, []);
+     
   return (
     <>
       <HeaderLayout />
@@ -47,6 +57,7 @@ function ProjectPage() {
         </div>
         {/* <h3>Created at: {project.date_created}</h3> */}
         {/* <h3>{`Status: ${project.is_open}`}</h3> */}
+        <p>Project created by: {owner.username}</p>
         <h2>Project Description: </h2>
         <h3> {project.description} </h3>
 
@@ -56,7 +67,7 @@ function ProjectPage() {
             return (
               <li key={key}>
                 <div>
-                {pledgeData.amount} from {pledgeData.supporter}...{pledgeData.comment}
+                {pledgeData.amount} pieces of Lego from {owner.username}...{pledgeData.comment}
                 </div>
               </li>
             );
