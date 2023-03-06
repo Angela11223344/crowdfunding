@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import FooterLayout from "../Footer/FooterLayout";
 import HeaderLayout from "../Header/HeaderLayout";
 
 function ProjectForm(){
@@ -85,6 +86,7 @@ function ProjectForm(){
                     </div>
                     <button type="submit">Create Project</button>
                 </form>
+            <FooterLayout />
             </div>
         </>
     );
