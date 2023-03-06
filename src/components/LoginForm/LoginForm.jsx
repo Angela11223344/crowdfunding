@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate, useOutletContext, Link } from "react-router-dom";
+import FooterLayout from "../Footer/FooterLayout";
 import HeaderLayout from "../Header/HeaderLayout";
 
 import "./LoginForm.css";
@@ -88,6 +89,7 @@ function LoginForm() {
           <Link to="/register">Don't Have An Account Yet? Sign up here!</Link>
         </div>
       </form>
+      <FooterLayout />
     </>
   );
 }

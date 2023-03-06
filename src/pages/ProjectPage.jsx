@@ -2,7 +2,8 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
-
+//Components
+import FooterLayout from "../components/Footer/FooterLayout";
 import HeaderLayout from "../components/Header/HeaderLayout";
 import PledgeFormPage from "../pages/PledgeFormPage";
 
@@ -76,6 +77,7 @@ function ProjectPage() {
       </div>
       <p>Would you like to donate some Lego? Pledge below to see {project.title} come to life!</p>
       <PledgeFormPage />
+      <FooterLayout />
     </>
 
   );

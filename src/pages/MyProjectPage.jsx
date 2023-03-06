@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import FooterLayout from "../components/Footer/FooterLayout";
 import HeaderLayout from "../components/Header/HeaderLayout";
 
 // Components
@@ -7,6 +8,8 @@ import ProjectCard from "../components/ProjectCard/ProjectCard";
 function MyProjectPage() {
   //State
   const [projectList, setProjectList] = useState([]);
+  //display my projects only
+  const [myProjects, setMyProjects] = useState([]);
 
   useEffect(() => {
     fetch(`${import.meta.env.VITE_API_URL}projects`)
@@ -16,6 +19,8 @@ function MyProjectPage() {
     .then((data) => {
       setProjectList(data);
     });
+    //my projects only
+
   }, []);
 
 
@@ -29,6 +34,7 @@ function MyProjectPage() {
           })}
         </div>
       </div>
+      <FooterLayout />
     </>
   );
 }

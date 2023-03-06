@@ -1,8 +1,7 @@
 //Data
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-
-
+import FooterLayout from "../components/Footer/FooterLayout";
 import HeaderLayout from "../components/Header/HeaderLayout";
 
 
@@ -31,12 +30,14 @@ function ViewAccountPage() {
      
   return (
     <>
-      <HeaderLayout /><div>
-       <p>MY ACCOUNT DETAILS</p>
-       <p>Username: </p>
-       <p>Email address: </p> 
-      </div>
-
+        <HeaderLayout />
+        <div>
+            <p>MY ACCOUNT DETAILS</p>
+            <p>Username: </p>
+            <p>Email address: </p> 
+        </div>
+        
+        <FooterLayout />
     </>
 
   );
