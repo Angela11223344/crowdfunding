@@ -5,8 +5,12 @@
     display: block;
     width: 150vh;
     place-items: center;
+    border-radius: 20px;
 }
 
 .header-background {
     background-color: crimson;
+    padding-top: 60px;
+    padding-bottom: 60px;
+    border-radius: 20px;
 }

@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import FooterLayout from "../components/Footer/FooterLayout";
 import HeaderLayout from "../components/Header/HeaderLayout";
 
 // Components
@@ -46,6 +47,9 @@ function HomePage() {
             return <ProjectCard key={key} projectData={project} />;
           })}
         </div>
+      </div>
+      <div>
+      <FooterLayout />
       </div>
     </>
   );

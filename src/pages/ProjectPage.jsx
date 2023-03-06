@@ -74,7 +74,7 @@ function ProjectPage() {
           })}
         </ul>
       </div>
-
+      <p>Would you like to donate some Lego? Pledge below to see {project.title} come to life!</p>
       <PledgeFormPage />
     </>
 

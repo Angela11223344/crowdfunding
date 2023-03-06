@@ -23,8 +23,8 @@ function ViewAccountPage() {
         setProject(data);
         const userId = data.owner;
         const results = await fetch(`${import.meta.env.VITE_API_URL}users/${userId}`);
-          const data_1 = await results.json();
-          return setOwner(data_1); 
+        const data_1 = await results.json();
+        return setOwner(data_1); 
 
     });
   }, []);
