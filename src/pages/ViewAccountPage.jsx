@@ -7,36 +7,34 @@ import HeaderLayout from "../components/Header/HeaderLayout";
 
 function ViewAccountPage() {
   //State
-  const [owner, setOwner] = useState([]);
+  const [user, setUser] = useState([]);
 
   //Hooks
   const { id } = useParams();
 
   //Effects
   useEffect(() => {
-    fetch(`${import.meta.env.VITE_API_URL}projects/${id}`)
+    fetch(`${import.meta.env.VITE_API_URL}users/${id}`)
       .then((results) => {
         return results.json();
       })
-      .then(async (data) => {
-        setProject(data);
-        const userId = data.owner;
-        const results = await fetch(`${import.meta.env.VITE_API_URL}users/${userId}`);
-        const data_1 = await results.json();
-        return setOwner(data_1); 
-
-    });
-  }, []);
+      .then((data) => {
+        setUser(data);
+      });
+    }, []);
      
   return (
     <>
         <HeaderLayout />
         <div>
+          {}
             <p>MY ACCOUNT DETAILS</p>
-            <p>Username: </p>
-            <p>Email address: </p> 
+            <p>Username: {user.username}</p>
+            <p>First Name: {user.first_name}</p>
+            <p>Last Name: {user.last_name}</p>
+            <p>Email address: {user.email}</p> 
         </div>
-        
+
         <FooterLayout />
     </>
 

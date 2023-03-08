@@ -18,9 +18,16 @@ function MyProjectPage() {
     })
     .then((data) => {
       setProjectList(data);
-    });
+    })
     //my projects only
+    .then(async (data) => {
+      setMyProjects(data);
+      const userId = data.owner;
+      const results = await fetch(`${import.meta.env.VITE_API_URL}projects/`);
+      const data_1 = await results.json();
+      return setOwner(data_1); 
 
+  });
   }, []);
 
 

@@ -61,10 +61,10 @@ function App() {
 
   const fetchData = () => {
     fetch(`${import.meta.env.VITE_API_URL}projects/`)
-      .then((res) => res.json())
+      .then((result) => result.json())
       .then((result) => {
         setProjectData(result);
-        console.log(result);
+        //console.log(result);
       });
   };
 
