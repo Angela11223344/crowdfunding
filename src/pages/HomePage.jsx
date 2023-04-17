@@ -41,9 +41,13 @@ function HomePage() {
         </div>
       </div>
         <h2> Help Us To Build Something Amazing! Donate your used Lego to MichaelangLego Designs and see things come to life!</h2>
-        <p> </p>
-        <p>What do you want us to create?</p>
+        <p> Anyone can donate! Are you...</p>
+        <ul>A Parent who is sick of standing on tiny lego pieces?</ul>
+        <ul>A Grandparent who is sick of standing on tiny lego pieces?</ul>
+        <ul>An adult who wants to make space for more cool lego sets?</ul>
+        <ul>A child who wants to make space for more cool lego sets?</ul>
 
+        <p>What do you want us to create?</p>
         <div id="project-list">
           {projectList.map((project, key) => {
             return <ProjectCard key={key} projectData={project} />;

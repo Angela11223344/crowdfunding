@@ -12,7 +12,7 @@ function ProjectCard(props) {
         <img src={projectData.image} />
         <h3>{projectData.title}</h3>
       </Link>
-      <p>{projectData.description}</p>
+      <span>{projectData.description}</span>
     </div>
   );
 }

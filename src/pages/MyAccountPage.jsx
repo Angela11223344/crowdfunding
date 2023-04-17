@@ -1,19 +1,21 @@
 //Data
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+
+
 import FooterLayout from "../components/Footer/FooterLayout";
 import HeaderLayout from "../components/Header/HeaderLayout";
 
 
-function ViewAccountPage() {
+function MyAccountPage(){
   //State
-  const [userData, setUserData] = useState([]);
+  const [user, setUser] = useState({});
 
   //Hooks
   const { id } = useParams();
 
   //Effects
-  useEffect(() => {
+  // useEffect(() => {
   //   async function getAccountDetails() {
   //     try {
   //       const response = await fetch(
@@ -29,27 +31,30 @@ function ViewAccountPage() {
   // }
   //   getAccountDetails();
 
-    fetch(`${import.meta.env.VITE_API_URL}users/${id}`)
-      .then((results) => {
-        return results.json();
-      })
-      .then((data) => {
-        setUserData(data);
-      })
-
-  }, [id]);
-
+  useEffect(() => {
+    const fetchUser = async () => {
+      try {
+        const response = await fetch(`${import.meta.env.VITE_API_URL}users/${id}`);
+        const data = await response.json();
+        setUser(data);
+        console.log(data)
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    fetchUser();
+  }, []);
+  
      
   return (
     <>
         <HeaderLayout />
         <div>
-          {}
             <p>MY ACCOUNT DETAILS</p>
-            <p>Username: {userData.id}</p>
-            <p>First Name: {userData.first_name}</p>
-            <p>Last Name: {userData.last_name}</p>
-            <p>Email address: {userData.email}</p> 
+            <p>Username: {user.username}</p>
+            <p>First Name: {user.first_name}</p>
+            <p>Last Name: {user.last_name}</p>
+            <p>Email address: {user.email}</p> 
         </div>
 
         <FooterLayout />
@@ -58,4 +63,4 @@ function ViewAccountPage() {
   );
 }
 
-export default ViewAccountPage;
+export default MyAccountPage;

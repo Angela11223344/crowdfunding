@@ -76,6 +76,17 @@ p {
     border: 1px solid blue;
   }
 
+@media (max-width: 900px) {
+  .main-lego-image {
+    max-width: 80vh;
+  }
+
+  h2 {
+    padding: 10px;
+  }
+
+}
+
 
 @media (max-width: 600px) {
   .main-lego-image {

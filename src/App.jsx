@@ -8,7 +8,7 @@ import ProjectPage from "./pages/ProjectPage";
 import LoginPage from "./pages/LoginPage";
 import MyProjectPage from "./pages/MyProjectPage";
 import PledgeFormPage from "./pages/PledgeFormPage";
-import ViewAccountPage from "./pages/ViewAccountPage";
+import MyAccountPage from "./pages/MyAccountPage";
 
 //Components
 import Nav from "./components/Nav/Nav";
@@ -20,6 +20,7 @@ import ProjectForm from "./components/ProjectForm/ProjectForm";
 
 //CSS
 import "./App.css";
+// import MyAccountPage from "./pages/MyAccountPage";
 
 const HeaderLayout = () => {
 
@@ -50,7 +51,7 @@ const router = createBrowserRouter([
       { path: "/pledges", element: <PledgeFormPage />},
       { path: "/register", element: <Register />},
       { path: "/projects", element: <ProjectForm />},
-      { path: "/myAccount", element: <ViewAccountPage />}
+      { path: "/users/:id", element: <MyAccountPage />},
     ],
   },
 ]);
