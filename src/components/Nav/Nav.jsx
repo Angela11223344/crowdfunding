@@ -19,34 +19,32 @@ function Nav(props) {
         setLoggedIn(false)
 
     //To show 'Welcome 'username'' on login
-    //const [user, setUser] = useState([]);
-    const [user, setUser] = useState({});
+    const [user, setUser] = useState([]);
     
+    //Hooks
     const { id } = useParams();
-
-    //
-    // useEffect(() => {
-    //     fetch(`${import.meta.env.VITE_API_URL}users/${id}`)
-    //       .then((results) => {
-    //         return results.json();
-    //     })
     
-    //   }, []);
-    // };
-
     useEffect(() => {
-        const fetchUser = async () => {
-          try {
-            const response = await fetch(`${import.meta.env.VITE_API_URL}users/${id}`);
-            const data = await response.json();
-            setUser(data);
-          } catch (err) {
-            console.log(err);
-          }
-        };
-        fetchUser();
+        fetch(`${import.meta.env.VITE_API_URL}users/${id}`)
+          .then((results) => {
+            return results.json();
+        })
       }, []);
     };
+
+    // useEffect(() => {
+    //     const fetchUser = async () => {
+    //       try {
+    //         const response = await fetch(`${import.meta.env.VITE_API_URL}users/${id}`);
+    //         const data = await response.json();
+    //         setUser(data);
+    //       } catch (err) {
+    //         console.log(err);
+    //       }
+    //     };
+    //     fetchUser();
+    //   }, []);
+    // };
 
     return (
         <nav>

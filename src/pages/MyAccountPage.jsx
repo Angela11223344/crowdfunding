@@ -9,7 +9,7 @@ import HeaderLayout from "../components/Header/HeaderLayout";
 
 function MyAccountPage(){
   //State
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState([]);
 
   //Hooks
   const { id } = useParams();
