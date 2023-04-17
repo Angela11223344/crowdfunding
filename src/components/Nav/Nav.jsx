@@ -1,7 +1,6 @@
-import { Link } from "react-router-dom";
-import { useEffect } from "react";
+import { Link, useParams } from "react-router-dom";
+import { useEffect, useRef } from "react";
 import "./Nav.css";
-
 
 // function Nav() {
 //     return (
@@ -20,11 +19,13 @@ function Nav(props) {
         setLoggedIn(false)
 
     //To show 'Welcome 'username'' on login
-    const [user, setUser] = useState([]);
+    //const [user, setUser] = useState([]);
+
+    const { id } = useParams();
 
     //
     useEffect(() => {
-        fetch(`${import.meta.env.VITE_API_URL}users`)
+        fetch(`${import.meta.env.VITE_API_URL}users/${id}`)
           .then((results) => {
             return results.json();
         })
@@ -32,7 +33,6 @@ function Nav(props) {
       }, []);
     };
 
-    
 
     return (
         <nav>

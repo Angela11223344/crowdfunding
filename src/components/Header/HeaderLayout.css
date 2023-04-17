@@ -1,4 +1,4 @@
-.logo-image{
+.logo-image {
     background-size: cover;
     border: 6px solid #333;
     margin: 0 auto;
@@ -13,4 +13,16 @@
     padding-top: 30px;
     padding-bottom: 30px;
     border-radius: 20px;
+}
+
+@media (max-width: 600px) {
+    .logo-image {
+        max-width: 42vh;
+        max-height: auto;
+    }
+
+    .header-background {
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
 }

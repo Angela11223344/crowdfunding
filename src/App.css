@@ -77,6 +77,35 @@ p {
   }
 
 
+@media (max-width: 600px) {
+  .main-lego-image {
+      max-width: 42vh;
+      max-height: auto;
+  }
+
+  .header-background {
+      padding-top: 20px;
+      padding-bottom: 20px;
+  }
+
+  .title {
+    font-size: 9px;
+  }
+
+  .bricks1 {
+    height: 50px;
+  }
+
+  .bricks2 {
+    height: 50px;
+  }
+
+  h2 {
+    font-size: 19px;
+    padding: 12px;
+  }
+}
+
 /* <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&display=swap" rel="stylesheet"> */

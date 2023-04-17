@@ -1,96 +1,108 @@
 import { useState } from "react";
+import { useNavigate, useParams, useOutletContext } from "react-router-dom";
 
-// Imports
-import { useNavigate, useParams } from "react-router-dom";
-
-function PledgeForm(pledgeData) {
-  // State
-  const [pledge, setPledge] = useState(
-    pledgeData.map
-  );
-
-  // Hooks
-  const { id } = useParams();
-  const navigate = useNavigate();
-
-  const token = window.localStorage.getItem("token");
-  const isUserLoggedin = !(token === null || token === undefined || token === "undefined")
-
-  if (!isUserLoggedin) {
-    navigate(`/login/`);
-  }
-
-  // Actions and Helpers
-  const handleChange = (event) => {
-    const { id, value } = event.target;
-    setPledge((PledgeData) => ({
-      ...PledgeData,
-      [id]: value,
-    }));
-  };
-
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-
-    const token = window.localStorage.getItem("token")
-    console.log("handleSubmit", token)
-
-    // Is user logged in and have they put something in all fields?
-    if (token && pledge.amount && pledge.comment) {
-      try {
+function PledgeForm(props) {
+    //Actions
+    const { id }  = useParams();
+    
+    //State
+    const { project } = props;
+    const authToken = window.localStorage.getItem("token");
+    
+    const [loggedIn] = useOutletContext();
+    const [pledge, setPledge] = useState({
+            amount: null,
+            comment: "",
+            anonymous: false,
+            project: id,
+        });
+    //Hooks 
+    const navigate = useNavigate();
+    
+    const handleChange = (event) => {
+        const { id, value} = event.target;
+        
+        setPledge((prevPledge) => ({
+            ...prevPledge,
+            [id]: value,
+        }));
+    };
+    const postData = async () => {
         const response = await fetch(
-          `${import.meta.env.VITE_API_URL}pledges/`,
-          {
-            method: "post",
-            headers: {
-              "Content-Type": "application/json",
-              "Authorization": `Token ${token}`,
-            },
-            body: JSON.stringify({
-              amount: parseInt(pledge.amount),
-              anonymous: false,
-              comment: pledge.comment,
-              project_id: parseInt(id)
-            }),
-          }
+            `${import.meta.env.VITE_API_URL}pledges/`,
+            {
+                method: "post",
+                headers: {
+                    "Authorization": `Token ${authToken}`,
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({project, ...pledge}),
+            }
         );
-        const data = await response.json();
-        console.log(data)
-
-        navigate(`/project/${id}`);
-      } catch (err) {
-        console.log(err);
-      }
-    }
-  };
-
-  return (
-    <>
-      <form>
+        return response.json();
+    };
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+        if (loggedIn) {
+            try {
+                if (pledge.amount) {
+                    postData().then((response) =>{
+                        console.log(response);
+                        // location.reload();
+                    });                    
+                } else {
+                    return (alert("Please enter an amount, thank you!"));
+                }
+            } catch (err) {
+                console.error(err);
+                alert(`Error: ${err.message}`);
+            };
+            
+        } else {
+            // redirect to login page
+            navigate(`/login`);
+        }
+    };
+    return (
+    <div>
+      <form onSubmit={handleSubmit}>
         <div>
-          <label htmlFor="amount">Enter Amount: </label>
+          <label htmlFor="amount">Amount:</label>
           <input
-            type="text"
+            type="number"
             id="amount"
+            min="1"
+            pattern="[0-9]*"
             placeholder="Enter amount"
             onChange={handleChange}
           />
         </div>
         <div>
-          <label htmlFor="comment">Leave a Comment: </label>
+          <label htmlFor="comment">Comment:</label>
           <input
             type="text"
             id="comment"
-            placeholder="Comment"
+            placeholder="Enter comment"
             onChange={handleChange}
           />
         </div>
-        <button className="pledge-btn" type="submit" onClick={handleSubmit}>
-          Donate
+        <div>
+            <label htmlFor="anonymous">Do you want to stay anonymous?:</label>
+            <select
+            type="select"
+            id="anonymous"
+            onChange={handleChange}>            
+                <option value="false">No, thanks</option>;
+                <option value="true">Yes, please</option>;
+            </select>
+          
+        </div>
+        <button type="submit">
+          Submit Pledge
         </button>
       </form>
-    </>
-  );
-}
-
-export default PledgeForm;
+    </div>
+    );
+  };
+  
+  export default PledgeForm;

@@ -7,21 +7,38 @@ import HeaderLayout from "../components/Header/HeaderLayout";
 
 function ViewAccountPage() {
   //State
-  const [user, setUser] = useState([]);
+  const [userData, setUserData] = useState([]);
 
   //Hooks
   const { id } = useParams();
 
   //Effects
   useEffect(() => {
+  //   async function getAccountDetails() {
+  //     try {
+  //       const response = await fetch(
+  //         `${import.meta.env.VITE_API_URL}users/${id}`,
+  //       { 
+  //         method: "GET",
+  //       });
+  //       const body = await response.json();
+  //       setUser(body);
+  //     } catch (err) {
+  //       console.log(err);
+  //   }
+  // }
+  //   getAccountDetails();
+
     fetch(`${import.meta.env.VITE_API_URL}users/${id}`)
       .then((results) => {
         return results.json();
       })
       .then((data) => {
-        setUser(data);
-      });
-    }, []);
+        setUserData(data);
+      })
+
+  }, [id]);
+
      
   return (
     <>
@@ -29,10 +46,10 @@ function ViewAccountPage() {
         <div>
           {}
             <p>MY ACCOUNT DETAILS</p>
-            <p>Username: {user.username}</p>
-            <p>First Name: {user.first_name}</p>
-            <p>Last Name: {user.last_name}</p>
-            <p>Email address: {user.email}</p> 
+            <p>Username: {userData.id}</p>
+            <p>First Name: {userData.first_name}</p>
+            <p>Last Name: {userData.last_name}</p>
+            <p>Email address: {userData.email}</p> 
         </div>
 
         <FooterLayout />

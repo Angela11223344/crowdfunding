@@ -5,6 +5,8 @@ import "./SearchBar.css";
 
 function SearchBar() {
 
+    //under construction
+
     return <>
             <form action="/" method="get">
                 <label htmlFor="header-search">

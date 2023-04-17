@@ -38,3 +38,14 @@ a {
 .welcome {
     padding-top: 20px;
 }
+
+@media (max-width: 600px) {
+    a {
+        font-size: 19px;
+    }
+
+    .header-background {
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+}

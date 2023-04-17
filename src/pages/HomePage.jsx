@@ -5,6 +5,7 @@ import HeaderLayout from "../components/Header/HeaderLayout";
 // Components
 import ProjectCard from "../components/ProjectCard/ProjectCard";
 import SearchBar from "../components/SearchBar/SearchBar";
+
 // Data
 //import { allProjects } from "../data";
 
@@ -40,6 +41,7 @@ function HomePage() {
         </div>
       </div>
         <h2> Help Us To Build Something Amazing! Donate your used Lego to MichaelangLego Designs and see things come to life!</h2>
+        <p> </p>
         <p>What do you want us to create?</p>
 
         <div id="project-list">

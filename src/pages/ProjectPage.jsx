@@ -2,9 +2,11 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
-//Components
-import FooterLayout from "../components/Footer/FooterLayout";
-import HeaderLayout from "../components/Header/HeaderLayout";
+//components
+//import FooterLayout from "../components/Footer/FooterLayout";
+//import HeaderLayout from "../components/Header/HeaderLayout";
+
+//pages
 import PledgeFormPage from "../pages/PledgeFormPage";
 
 //Dummy data
@@ -47,7 +49,6 @@ function ProjectPage() {
      
   return (
     <>
-      <HeaderLayout />
       <div>
         <h2>Donate to {project.title}!</h2>
         <div className="pledge-card">
@@ -65,9 +66,9 @@ function ProjectPage() {
             return (
               <li key={key}>
                 <div>
-                {pledgeData.amount} piece/s of Lego donated by {owner.username}...
+                  {pledgeData.amount} piece/s of Lego donated by {pledgeData.supporter ? pledgeData.supporter: "The kind Lego elf"}
                 <h4>
-                  {owner.username} says : "{pledgeData.comment}"
+                  {pledgeData.supporter} says: "{pledgeData.comment}"
                 </h4>
                 </div>
               </li>
@@ -77,7 +78,6 @@ function ProjectPage() {
       </div>
       <p>Would you like to donate some Lego? Pledge below to see {project.title} come to life!</p>
       <PledgeFormPage />
-      <FooterLayout />
     </>
 
   );
