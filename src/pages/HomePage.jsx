@@ -42,12 +42,10 @@ function HomePage() {
       </div>
         <h2> Help Us To Build Something Amazing! Donate your used Lego to MichaelangLego Designs and see things come to life!</h2>
         <p> Anyone can donate! Are you...</p>
-        <ul>
           <li>A Parent who is sick of standing on tiny lego pieces?</li>
           <li>A Grandparent who is sick of standing on tiny lego pieces?</li>
           <li>An adult who wants to make space for more cool lego sets?</li>
           <li>A child who wants to make space for more cool lego sets?</li>
-        </ul>
         <p>Then this project is for you! We Want Your LEGO!</p>
         <p>What do you want us to create?</p>
         <div id="project-list">

@@ -51,6 +51,12 @@ p {
   padding-bottom: 10px;
 }
 
+li {
+  color: blue;
+  font-size: 20px;
+  text-align: center;
+}
+
 /* Project Page CSS */
 
 .pledge-card {
